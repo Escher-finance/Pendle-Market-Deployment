@@ -15,8 +15,8 @@ const startTimestamp = 1689206400;
 const endTimestamp = 1750896000;
 
 export const MarketConfiguration = {
-    name: 'SY swETH',
-    symbol: 'SY-swETH',
+    name: 'SY eBABY',
+    symbol: 'SY-eBABY',
     doCacheIndex: true,
     expiry: endTimestamp,
     ...calculateParameters(minApy, maxApy, startTimestamp, endTimestamp),
@@ -25,7 +25,7 @@ export const MarketConfiguration = {
 
 // address(0) is native
 // Either you can put the address of the ERC20 underlying token here
-export const UNDERLYING_TO_SEED_LIQUIDITY = ZERO_ADDRESS;
+export const UNDERLYING_TO_SEED_LIQUIDITY = '0x70dF20655b3e294facB436383435754dbee3CD70'; // eBABY address
 
 // We highly recommend you to put only very minimal amount to seed liquidity
 // The rest of the liquidity should be seeded through our UI

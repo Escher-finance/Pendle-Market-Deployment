@@ -1,5 +1,5 @@
-import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
-import { IStandardizedYield, SwETHSY } from '../typechain-types';
+import type { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
+import type { IStandardizedYield, EBabySY } from '../typechain-types';
 import { deploy, getContractAt } from './misc/helper';
 import { MarketConfiguration } from './configuration';
 
@@ -12,10 +12,10 @@ import { MarketConfiguration } from './configuration';
  * - Change the deployment params to match your constructor arguments
  */
 export async function deploySY(deployer: SignerWithAddress): Promise<IStandardizedYield> {
-    const sy = await deploy<SwETHSY>(deployer, 'SwETHSY', [
+    const sy = await deploy<EBabySY>(deployer, 'EBabySY', [
         MarketConfiguration.name,
         MarketConfiguration.symbol,
-        '0xf951E335afb289353dc249e82926178EaC7DEd78', // SWETH address
+        '0x70dF20655b3e294facB436383435754dbee3CD70', // eBABY address
     ]);
 
     return await getContractAt<IStandardizedYield>('IStandardizedYield', sy.address);
